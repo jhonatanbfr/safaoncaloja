@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Safa Onça | Materiais para Construção</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>SAFA ONÇA DISTRIBUIDORA</h1>
+
+        <div>
+    <input type="text" id="searchInput" placeholder="Buscar produtos...">
+    <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <button onclick="openCart()">
+            🛒 Carrinho (<span id="cartCount">0</span>)
+        </button>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Tudo para sua obra em um só lugar.</h2>
+
+        <p>
+            Parafusos, ferramentas, elétrica, hidráulica
+            e materiais para construção.
+        </p>
+
+        <a href="#produtos">Ver produtos</a>
+    </section>
+
+    <section id="categorias">
+        <h2>Categorias</h2>
+
+        <div class="categorias">
+            <button onclick="filterCategory('Parafusos')">
+                🔩 Parafusos
+            </button>
+
+            <button onclick="filterCategory('Ferramentas')">
+                🔨 Ferramentas
+            </button>
+
+            <button onclick="filterCategory('Elétrica')">
+                ⚡ Elétrica
+            </button>
+
+            <button onclick="filterCategory('Hidráulica')">
+                🚿 Hidráulica
+            </button>
+        </div>
+    </section>
+
+    <section id="produtos">
+        <h2>Produtos</h2>
+
+        <div id="productsGrid"></div>
+    </section>
+
+    <footer id="contato">
+        <h3>SAFA ONÇA</h3>
+
+        <p>📞 (23) 99395-2222</p>
+
+        <p>Distribuidora de materiais para construção.</p>
+    </footer>
+
+    <div id="cart">
+        <button onclick="closeCart()">Fechar</button>
+
+        <h2>Seu carrinho</h2>
+
+        <div id="cartItems"></div>
+
+        <h3>
+            Total:
+            <span id="cartTotal">R$ 0,00</span>
+        </h3>
+
+        <button onclick="checkoutWhatsApp()">
+            Finalizar pelo WhatsApp
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
