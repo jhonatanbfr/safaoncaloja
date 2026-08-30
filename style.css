@@ -24,10 +24,24 @@ header {
 header h1 {
     color: #ffcc00;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
 .logo img {
-    height: 55px;
+    height: 80px;
     width: auto;
     display: block;
+}
+
+.logo span {
+    color: #ffcc00;
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 header input {
     padding: 10px 15px;
