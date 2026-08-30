@@ -24,7 +24,11 @@ header {
 header h1 {
     color: #ffcc00;
 }
-
+.logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+}
 header input {
     padding: 10px 15px;
     border: none;
