@@ -12,29 +12,80 @@
 
 <body>
 
-    <header>
-        <a href="#" class="logo">
-    <img src="imagens/logo.webp" alt="Safa Onça Distribuidora">
+    <header class="top-header">
 
+    <!-- LOGO -->
+    <a href="#" class="logo">
+    <img src="imagens/logo.webp" alt="Safa Onça Distribuidora">
     <span>SAFA ONÇA DISTRIBUIDORA</span>
 </a>
 
-    <div>
-        <input type="text" id="searchInput" placeholder="Buscar produtos...">
-        <button onclick="searchProducts()">🔍</button>
+    <!-- CENTRO -->
+    <div class="header-center">
+
+        <div class="phone">
+            📞 (21) 96466-6467
+        </div>
+
+        <div class="search-area">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Ache seu produto..."
+            >
+
+            <button onclick="searchProducts()">
+                BUSCAR
+            </button>
+        </div>
+
+        <div class="header-message">
+            Venda para lojistas, construtoras e consumidores
+        </div>
+
     </div>
 
-        <button onclick="openCart()">
-            🛒 Carrinho (<span id="cartCount">0</span>)
-        </button>
-    </header>
+    <!-- CARRINHO -->
+    <div class="header-cart" onclick="openCart()">
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#categorias">Categorias</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#contato">Contato</a>
-    </nav>
+        <div>
+            🛒 <strong id="headerCartCount">0 item(ns)</strong>
+        </div>
+
+        <span>Valor até agora</span>
+
+        <strong id="headerCartTotal">
+            R$ 0,00
+        </strong>
+
+        <button>
+            Ver itens
+        </button>
+
+    </div>
+
+</header>
+
+
+<nav class="main-nav">
+
+    <a href="#">PRINCIPAL</a>
+
+    <a href="#produtos">PRODUTOS</a>
+
+    <a href="#categorias">CATEGORIAS</a>
+
+    <a href="#contato">CONTATO</a>
+
+    <a href="#">TROCAS</a>
+
+    <a href="#">FABRICANTES</a>
+
+    <span class="company-name">
+        SAFA ONÇA DISTRIBUIDORA
+    </span>
+
+</nav>
 
     <section class="hero">
         <h2>Tudo para sua obra em um só lugar.</h2>

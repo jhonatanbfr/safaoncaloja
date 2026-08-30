@@ -10,68 +10,131 @@ body {
     color: #222;
 }
 
-header {
-    background: #0b305e;
-    color: white;
-    padding: 20px 5%;
-    display: flex;
+.top-header {
+    background: white;
+    padding: 18px 4%;
+    display: grid;
+    grid-template-columns: 280px 1fr 170px;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 25px;
+    border-bottom: 1px solid #ddd;
 }
 
-header h1 {
-    color: #ffcc00;
-}
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
     text-decoration: none;
 }
-
+.logo span {
+    color: #d4a300;
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
 .logo img {
-    height: 80px;
+    height: 120px;
     width: auto;
     display: block;
 }
 
-.logo span {
-    color: #ffcc00;
-    font-size: 25px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-header input {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
+.header-center {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-header button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+.phone {
+    color: #111;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-area {
+    display: flex;
+    width: 100%;
+}
+
+.search-area input {
+    flex: 1;
+    height: 46px;
+    padding: 0 15px;
+    border: 1px solid #cfcfcf;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-area button {
+    width: 110px;
+    border: 1px solid #1f6cff;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.header-message {
+    font-size: 13px;
+    color: #222;
+    text-align: center;
+}
+
+.header-cart {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    padding: 10px;
+    text-align: center;
     cursor: pointer;
 }
 
-nav {
-    background: #6d3916;
-    color: white;
-    padding: 12px 5%;
-    display: flex;
-    gap: 25px;
+.header-cart div {
+    font-size: 13px;
+    margin-bottom: 4px;
 }
 
-nav a {
+.header-cart span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.header-cart strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.header-cart button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.main-nav {
+    background: #0b5a3f;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
     color: white;
     text-decoration: none;
+    padding: 16px 18px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-nav a:hover {
-    color: #ffcc00;
+.main-nav a:hover {
+    background: #0e704e;
+}
+
+.company-name {
+    margin-left: auto;
+    color: white;
+    font-weight: bold;
+    padding: 16px 18px;
+    font-size: 14px;
 }
 
 .hero {
