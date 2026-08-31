@@ -30,6 +30,16 @@ const products = [
     minQuantity: 5,
     image: "imagens/encartelado1.webp"
 },
+{
+    id: 4,
+    code: "2",
+    name: "Cart. Parafuso Auto Atarraxante 3,9 x 25 - 8 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
 ];
 
 let cart = [];
