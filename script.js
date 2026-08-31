@@ -1,27 +1,8 @@
 const products = [
-    {
+    
+{
     id: 1,
     code: "001",
-    name: "Parafuso Sextavado 1/4",
-    category: "Parafusos",
-    price: 2.50,
-    package: 50,
-    minQuantity: 50,
-    image: "imagens/parafuso.webp"
-},
-    {
-    id: 2,
-    code: "002",
-    name: "Caixa de Bucha Nº 8",
-    category: "Parafusos",
-    price: 18.90,
-    package: 100,
-    minQuantity: 100,
-    image: "imagens/bucha.webp"
-},
-{
-    id: 3,
-    code: "003",
     name: "Expositor de Parafusos",
     category: "Parafusos",
     price: 600.00,
@@ -30,14 +11,24 @@ const products = [
     image: "imagens/expositor.webp"
 },
 {
-    id: 4,
-    code: "004",
+    id: 2,
+    code: "002",
     name: "Expositor + 1200 encartelados",
     category: "Parafusos",
     price: 3240.00,
     package: 1,
     minQuantity: 1,
     image: "imagens/expositorcompleto.webp"
+},
+{
+    id: 3,
+    code: "003",
+    name: "Cart. Parafuso Auto Atarraxante. 3,9 x 19 - 12 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
 },
 ];
 
