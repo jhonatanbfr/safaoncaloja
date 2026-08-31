@@ -29,6 +29,16 @@ const products = [
     minQuantity: 1,
     image: "imagens/expositor.webp"
 },
+{
+    id: 4,
+    code: "004",
+    name: "Expositor + 1200 encartelados",
+    category: "Parafusos",
+    price: 3240.00,
+    package: 1,
+    minQuantity: 1,
+    image: "imagens/expositorcompleto.webp"
+},
 ];
 
 let cart = [];
