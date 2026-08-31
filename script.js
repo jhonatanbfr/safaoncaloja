@@ -22,7 +22,7 @@ const products = [
 },
 {
     id: 3,
-    code: "003",
+    code: "1",
     name: "Cart. Parafuso Auto Atarraxante. 3,9 x 19 - 12 unidades",
     category: "Parafusos",
     price: 2.20,
