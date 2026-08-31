@@ -19,6 +19,16 @@ const products = [
     minQuantity: 100,
     image: "imagens/bucha.webp"
 },
+{
+    id: 3,
+    code: "003",
+    name: "Expositor de Parafusos",
+    category: "Parafusos",
+    price: 600.00,
+    package: 1,
+    minQuantity: 1,
+    image: "imagens/expositor.webp"
+},
 ];
 
 let cart = [];
