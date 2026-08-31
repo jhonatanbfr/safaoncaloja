@@ -1,53 +1,24 @@
 const products = [
     {
-        id: 1,
-        name: "Parafuso Sextavado 1/4",
-        category: "Parafusos",
-        price: 2.50,
-        image: "imagens/parafuso.webp"
-    },
+    id: 1,
+    code: "001",
+    name: "Parafuso Sextavado 1/4",
+    category: "Parafusos",
+    price: 2.50,
+    package: 50,
+    minQuantity: 50,
+    image: "imagens/parafuso.webp"
+},
     {
     id: 2,
+    code: "002",
     name: "Caixa de Bucha Nº 8",
     category: "Parafusos",
     price: 18.90,
+    package: 100,
+    minQuantity: 100,
     image: "imagens/bucha.webp"
-    },
-    {
-        id: 3,
-        name: "Martelo Profissional",
-        category: "Ferramentas",
-        price: 39.90,
-        image: "imagens/martelo.webp"
-    },
-    {
-    id: 4,
-    name: "Alicate Universal",
-    category: "Ferramentas",
-    price: 29.90,
-    image: "imagens/alicate.webp"
-    },
-    {
-    id: 5,
-    name: "Tomada 10A",
-    category: "Elétrica",
-    price: 8.50,
-    image: "imagens/tomada.webp"
-    },
-    {
-    id: 6,
-    name: "Fita Isolante",
-    category: "Elétrica",
-    price: 6.90,
-    image: "imagens/fita.webp"
-    },
-    {
-    id: 7,
-    name: "Joelho PVC 25mm",
-    category: "Hidráulica",
-    price: 3.50,
-    image: "imagens/joelho.webp"
-    },
+},
 ];
 
 let cart = [];
@@ -67,28 +38,47 @@ function displayProducts(list) {
     list.forEach(product => {
 
         grid.innerHTML += `
-            <div class="product">
+    <div class="product">
 
-                ${product.image ? `
-                    <img class="product-image"
-                         src="${product.image}"
-                         alt="${product.name}">
-                ` : ""}
+        ${product.image ? `
+            <img class="product-image"
+                 src="${product.image}"
+                 alt="${product.name}">
+        ` : ""}
 
-                <p>${product.category}</p>
+        <p class="product-code">
+            CÓD - ${product.code ?? product.id}
+        </p>
 
-                <h3>${product.name}</h3>
+        <h3>${product.name}</h3>
 
-                <p>
-                    <strong>${formatMoney(product.price)}</strong>
-                </p>
+        <p class="product-package">
+            Embalagem: ${product.package ?? 1}
+        </p>
 
-                <button onclick="addToCart(${product.id})">
-                    Adicionar ao carrinho
-                </button>
 
-            </div>
-        `;
+        <p class="product-price">
+            <strong>${formatMoney(product.price)}</strong>
+        </p>
+
+        <div class="product-buy-row">
+
+            <input
+                type="number"
+                id="quantity-${product.id}"
+                value="${product.minQuantity ?? 1}"
+                min="${product.minQuantity ?? 1}"
+                step="${product.package ?? 1}"
+            >
+
+            <button onclick="addQuantityToCart(${product.id})">
+                🛒 ADICIONAR
+            </button>
+
+        </div>
+
+    </div>
+`;
 
     });
 }
@@ -118,6 +108,41 @@ function addToCart(id) {
     updateCart();
     openCart();
 }
+function addQuantityToCart(id) {
+    const product = products.find(product => product.id === id);
+
+    const input = document.getElementById(`quantity-${id}`);
+
+    let quantity = parseInt(input.value);
+
+    const minQuantity = product.minQuantity ?? 1;
+    const packageQuantity = product.package ?? 1;
+
+    if (isNaN(quantity) || quantity < minQuantity) {
+        alert(`A quantidade mínima para este produto é ${minQuantity}.`);
+        input.value = minQuantity;
+        return;
+    }
+
+    if (quantity % packageQuantity !== 0) {
+        alert(`Este produto deve ser comprado em múltiplos de ${packageQuantity}.`);
+        return;
+    }
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({
+            ...product,
+            quantity: quantity
+        });
+    }
+
+    updateCart();
+    openCart();
+}
 function changeQuantity(id, amount) {
     const item = cart.find(item => item.id === id);
 
@@ -137,64 +162,67 @@ function removeItem(id) {
 }
 function updateCart() {
     const cartItems = document.getElementById("cartItems");
-    const cartCount = document.getElementById("cartCount");
     const cartTotal = document.getElementById("cartTotal");
+
+    const headerCartCount = document.getElementById("headerCartCount");
+    const headerCartTotal = document.getElementById("headerCartTotal");
 
     cartItems.innerHTML = "";
 
     let quantity = 0;
     let total = 0;
 
-cart.forEach(item => {
-    quantity += item.quantity;
-    total += item.price * item.quantity;
+    cart.forEach(item => {
+        quantity += item.quantity;
+        total += item.price * item.quantity;
 
-    cartItems.innerHTML += `
-    <div class="cart-item">
+        cartItems.innerHTML += `
+            <div class="cart-item">
 
-        <div class="cart-product-info">
+                <div class="cart-product-info">
 
-            ${item.image ? `
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                    class="cart-product-image"
-                >
-            ` : ""}
+                    ${item.image ? `
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                            class="cart-product-image"
+                        >
+                    ` : ""}
 
-            <div>
-                <strong>${item.name}</strong>
+                    <div>
+                        <strong>${item.name}</strong>
 
-                <p>
-                    ${formatMoney(item.price * item.quantity)}
-                </p>
+                        <p>
+                            ${formatMoney(item.price * item.quantity)}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+                    <button onclick="changeQuantity(${item.id}, -1)">
+                        ➖
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="changeQuantity(${item.id}, 1)">
+                        ➕
+                    </button>
+                </div>
+
+                <button onclick="removeItem(${item.id})">
+                    🗑️ Remover
+                </button>
+
             </div>
-
-        </div>
-
-        <div>
-            <button onclick="changeQuantity(${item.id}, -1)">
-                ➖
-            </button>
-
-            <span>
-                ${item.quantity}
-            </span>
-
-            <button onclick="changeQuantity(${item.id}, 1)">
-                ➕
-            </button>
-        </div>
-
-        <button onclick="removeItem(${item.id})">
-            🗑️ Remover
-        </button>
-    </div>
-`;
+        `;
     });
 
-    cartCount.textContent = quantity;
     cartTotal.textContent = formatMoney(total);
+
+    headerCartCount.textContent = `${quantity} itens`;
+    headerCartTotal.textContent = formatMoney(total);
 }
 
 function openCart() {
