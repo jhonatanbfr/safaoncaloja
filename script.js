@@ -40,6 +40,96 @@ const products = [
     minQuantity: 5,
     image: "imagens/encartelado1.webp"
 },
+{
+    id: 5,
+    code: "3",
+    name: "Cart. Parafuso Auto Atarraxante  4,2 x 16 - 12 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 6,
+    code: "4",
+    name: "Cart. Parafuso Auto Atarraxante. 4,2 x 22 -  8 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 7,
+    code: "5",
+    name: "Cart. Parafuso Auto Atarraxante 4,2 x 25 -  8 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 8,
+    code: "6",
+    name: "Cart. Parafuso Auto  Atarraxante  4,2 x 32 - 7 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 9,
+    code: "7",
+    name: "Cart. Parafuso Auto Atarraxante  4,2 x 38 -  6 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 10,
+    code: "8",
+    name: "Cart. Parafuso Auto Atarraxante  4,8 x 19 - 10 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 11,
+    code: "9",
+    name: "Cart. Parafuso Auto Atarraxante  4,8 x 38 -  6 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 12,
+    code: "10",
+    name: "Cart. Parafuso Auto Atarraxante  4,8 x 45 -  5 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
+{
+    id: 13,
+    code: "11",
+    name: "Cart. Parafuso Auto Atarraxante  4,8 x 50 -  5 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado1.webp"
+},
 ];
 
 let cart = [];
