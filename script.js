@@ -130,6 +130,26 @@ const products = [
     minQuantity: 5,
     image: "imagens/encartelado1.webp"
 },
+{
+    id: 14,
+    code: "12",
+    name: "Cart. Parafuso trombeta Drywall 3,5 x 25 - 9 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado2.webp"
+},
+{
+    id: 15,
+    code: "13",
+    name: "Cart. Parafuso trombeta Drywall 3,5 x 55 - 7 unidades",
+    category: "Parafusos",
+    price: 2.20,
+    package: 1,
+    minQuantity: 5,
+    image: "imagens/encartelado2.webp"
+},
 ];
 
 let cart = [];
