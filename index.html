@@ -15,7 +15,7 @@
     <header class="top-header">
 
     <!-- LOGO -->
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
     <img src="imagens/logo.webp" alt="Safa Onça Distribuidora">
 </a>
 
@@ -76,7 +76,7 @@
 
 </nav>
 
-    <section class="hero">
+    <section class="hero" id="heroSection">
         <h2>Tudo para sua obra em um só lugar.</h2>
 
         <p>
@@ -87,41 +87,109 @@
         <a href="#produtos">Ver produtos</a>
     </section>
 
-    <section id="categorias">
-        <h2>Categorias</h2>
-
-        <div class="categorias">
-            <button onclick="filterCategory('Parafusos')">
-                🔩 Parafusos
-            </button>
-
-            <button onclick="filterCategory('Ferramentas')">
-                🔨 Ferramentas
-            </button>
-
-            <button onclick="filterCategory('Elétrica')">
-                ⚡ Elétrica
-            </button>
-
-            <button onclick="filterCategory('Hidráulica')">
-                🚿 Hidráulica
-            </button>
-        </div>
-    </section>
-
     <section id="produtos">
-        <h2>Produtos</h2>
+        <div class="catalog-layout">
 
-        <div id="productsGrid"></div>
+    <aside class="categories-sidebar">
+        <h2>☰ CATEGORIAS</h2>
+
+        <button onclick="showAllProducts()">TODOS OS PRODUTOS</button>
+        <button onclick="filterCategory('Parafusos')">Parafusos</button>
+        <button onclick="filterCategory('Ferramentas')">Ferramentas</button>
+        <button onclick="filterCategory('Elétrica')">Elétrica</button>
+        <button onclick="filterCategory('Hidráulica')">Hidráulica</button>
+    </aside>
+
+    <div class="catalog-content">
+
+        <h2 id="catalogTitle">Produtos</h2>
+
+<div class="products-toolbar">
+
+    <div class="toolbar-group">
+        <label for="itemsPerPage">Itens por página</label>
+
+        <select id="itemsPerPage" onchange="applyProductFilters()">
+    <option value="8">8</option>
+    <option value="12">12</option>
+    <option value="24">24</option>
+    <option value="48" selected>48</option>
+    <option value="100">100</option>
+</select>
+    </div>
+
+    <div class="toolbar-group">
+        <label for="sortProducts">Ordenar por:</label>
+
+        <select id="sortProducts" onchange="applyProductFilters()">
+            <option value="code-asc">Código crescente</option>
+            <option value="code-desc">Código decrescente</option>
+            <option value="name-asc">Nome A-Z</option>
+            <option value="name-desc">Nome Z-A</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+        
+        </select>
+    </div>
+
+</div>
+
+<div id="productsGrid"></div>
+</div>
+</div>
     </section>
 
-    <footer id="contato">
-        <h3>SAFA ONÇA</h3>
+    <footer id="contato" class="site-footer">
 
-        <p>📞 (21) 96406-0467</p>
+    <div class="footer-grid">
 
-        <p>Distribuidora de Parafusos</p>
-    </footer>
+        <div class="footer-item">
+            <div class="footer-icon">📞</div>
+            <h3>Telefone:</h3>
+
+            <div class="footer-phone-box">
+                <p>(21) 96466-6467</p>
+            </div>
+
+            <a
+                class="footer-whatsapp"
+                href="https://wa.me/5521964666467"
+                target="_blank"
+            >
+                🟢 Fale pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="footer-item">
+            <div class="footer-icon">📍</div>
+            <h3>Localização:</h3>
+
+            <p>
+                R. Nuncio Ostni, 81 <br>
+                Realengo - CEP: 21745-020 <br>
+            </p>
+
+            <p>
+                Rio de Janeiro - RJ
+            </p>
+        </div>
+
+        <div class="footer-item">
+            <div class="footer-icon">✉️</div>
+            <h3>E-mail:</h3>
+
+            <p>
+                safaoncautilidades@gmail.com
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © Copyright 2026 | Safa Onça Distribuidora
+    </div>
+
+</footer>
 
     <div id="cart">
         <button onclick="closeCart()">Fechar</button>

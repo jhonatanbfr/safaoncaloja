@@ -1465,21 +1465,88 @@ function checkoutWhatsApp() {
     window.open(url, "_blank");
 }
 function searchProducts() {
-    const search = document
+    const searchText = document
         .getElementById("searchInput")
         .value
-        .toLowerCase();
+        .trim();
+
+    const search = searchText.toLowerCase();
 
     const filtered = products.filter(product =>
         product.name.toLowerCase().includes(search) ||
         product.category.toLowerCase().includes(search)
     );
 
-    displayProducts(filtered);
+    const catalogTitle = document.getElementById("catalogTitle");
+    const heroSection = document.getElementById("heroSection");
+
+    if (searchText === "") {
+    catalogTitle.textContent = "Produtos";
+    heroSection.style.display = "";
+} else {
+    catalogTitle.textContent =
+        `Resultado para a busca: ${searchText}`;
+
+    heroSection.style.display = "none";
 }
 
+    displayProducts(filtered);
+}
+function applyProductFilters() {
+    const itemsPerPage = parseInt(
+        document.getElementById("itemsPerPage").value
+    );
+
+    const sortType =
+        document.getElementById("sortProducts").value;
+
+    let filteredProducts = [...products];
+
+    if (sortType === "name-asc") {
+        filteredProducts.sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+    }
+
+    if (sortType === "name-desc") {
+        filteredProducts.sort((a, b) =>
+            b.name.localeCompare(a.name)
+        );
+    }
+    if (sortType === "code-asc") {
+    filteredProducts.sort((a, b) =>
+        Number(a.code ?? a.id) - Number(b.code ?? b.id)
+    );
+    }
+
+    if (sortType === "code-desc") {
+    filteredProducts.sort((a, b) =>
+        Number(b.code ?? b.id) - Number(a.code ?? a.id)
+    );
+    }
+    if (sortType === "price-asc") {
+        filteredProducts.sort((a, b) =>
+            a.price - b.price
+        );
+    }
+
+    if (sortType === "price-desc") {
+        filteredProducts.sort((a, b) =>
+            b.price - a.price
+        );
+    }
+
+    filteredProducts =
+        filteredProducts.slice(0, itemsPerPage);
+
+    displayProducts(filteredProducts);
+}
 document
     .getElementById("searchInput")
-    .addEventListener("input", searchProducts);
-displayProducts(products);
+    .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            searchProducts();
+        }
+    });
+applyProductFilters();
 updateCart();
