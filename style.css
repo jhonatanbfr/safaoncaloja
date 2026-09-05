@@ -235,9 +235,10 @@ body {
 
 #productsGrid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(190px, 230px));
-justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 20px;
+    width: 100%;
+    min-width: 0;
 }
 
 .product {
@@ -600,6 +601,7 @@ justify-content: center;
 
 .catalog-content {
     min-width: 0;
+    width: 100%;
 }
 .categories-sidebar h2 {
     font-size: 22px;
@@ -631,4 +633,114 @@ justify-content: center;
 .categories-sidebar button:hover {
     background: #0b5a3f;
     color: white;
+}
+@media (max-width: 900px) {
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-sidebar {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+
+    .top-header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 90px;
+    }
+
+    .header-center {
+        width: 100%;
+        max-width: none;
+    }
+
+    .phone {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .search-area {
+        width: 100%;
+    }
+
+    .search-area input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .search-area button {
+        width: 90px;
+    }
+
+    .header-cart {
+        width: 150px;
+        align-self: center;
+    }
+
+    .main-nav {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .main-nav a {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    .catalog-layout {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+    }
+
+    .categories-sidebar {
+        width: 100%;
+    }
+
+    .products-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .toolbar-group {
+        justify-content: space-between;
+    }
+
+    #productsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product {
+        padding: 10px;
+    }
+
+    .product-image {
+        height: 120px;
+    }
+
+    .product-buy-row {
+        flex-direction: column;
+    }
+
+    .product-buy-row input,
+    .product-buy-row button {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
